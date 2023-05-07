@@ -1,4 +1,15 @@
-<input type="text" [(ngModel)]="login">
-<input type="password" [(ngModel)]="password">
-<button (click)="LoginBtn()"></button>
+<div class="container">
+  <mat-form-field appearance="outline">
+    <mat-label>Логин</mat-label>
+    <input [(ngModel)]="login" matInput>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Пароль</mat-label>
+    <input type="password" [(ngModel)]="password" matInput>
+  </mat-form-field>
+  <div class="button-section">
+    <button mat-raised-button routerLink="/register" class="button">Регистрация</button>
+    <button mat-raised-button color="primary" (click)="LoginBtn()" class="button">Вход</button>
+  </div>
+</div>
 <router-outlet></router-outlet>

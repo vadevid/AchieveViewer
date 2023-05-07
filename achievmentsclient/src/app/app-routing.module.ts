@@ -5,7 +5,7 @@ import {MainComponent} from "./pages/main/main.component";
 import {RegisterComponent} from "./pages/register/register.component";
 
 const routes: Routes = [
-  {path: 'authorization', component: AuthorizationComponent},
+  {path: 'auth', component: AuthorizationComponent},
   {path: 'main', component: MainComponent},
   {path: 'register', component: RegisterComponent},
   {path: '', redirectTo: '/authorization', pathMatch: 'full'}

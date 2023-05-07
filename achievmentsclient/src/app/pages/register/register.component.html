@@ -1,2 +1,15 @@
-<p>register works!</p>
+<div class="container">
+  <mat-form-field appearance="outline">
+    <mat-label>Логин</mat-label>
+    <input [(ngModel)]="login" matInput>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Пароль</mat-label>
+    <input type="password" [(ngModel)]="password" matInput>
+  </mat-form-field>
+  <div class="button-section">
+    <button mat-raised-button routerLink="/auth" class="button">Вход</button>
+    <button mat-raised-button color="primary" (click)="RegisterBtn()" class="button">Регистрация</button>
+  </div>
+</div>
 <router-outlet></router-outlet>

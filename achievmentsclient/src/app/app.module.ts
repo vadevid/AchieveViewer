@@ -8,6 +8,11 @@ import { MainComponent } from './pages/main/main.component';
 import { RegisterComponent } from './pages/register/register.component';
 import {StoreModule} from "@ngrx/store";
 import {FormsModule} from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
+import {HttpClientModule} from "@angular/common/http";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -19,6 +24,7 @@ import {FormsModule} from "@angular/forms";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     StoreModule.forRoot({}, {
       runtimeChecks: {
         strictStateImmutability: true,
@@ -26,6 +32,10 @@ import {FormsModule} from "@angular/forms";
       }
     }),
     FormsModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

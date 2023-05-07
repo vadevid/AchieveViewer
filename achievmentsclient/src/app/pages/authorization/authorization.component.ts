@@ -13,7 +13,6 @@ export class AuthorizationComponent {
   password: string = '';
   routing: Router;
   route: ActivatedRoute;
-  loginEmmit = new EventEmitter<number>();
 
   constructor(@Inject(Router) router: Router, @Inject(ActivatedRoute) route: ActivatedRoute) {
     this.routing = router;
