@@ -8,4 +8,5 @@ import java.util.List;
 
 @Repository
 public interface AchivRepository extends JpaRepository<Achiv, Integer> {
+    Achiv getAchivById(Integer id);
 }
