@@ -31,6 +31,9 @@ public class Checked {
         this.achiv = achiv;
     }
 
+    public Checked() {
+    }
+
     public Integer getId() {
         return id;
     }
