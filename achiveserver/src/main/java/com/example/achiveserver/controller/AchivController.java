@@ -1,12 +1,9 @@
 package com.example.achiveserver.controller;
 
-import com.example.achiveserver.entity.Achiv;
 import com.example.achiveserver.model.AchivModel;
 import com.example.achiveserver.model.CheckModel;
-import com.example.achiveserver.model.UserLoginModel;
 import com.example.achiveserver.model.UserModel;
 import com.example.achiveserver.service.AchivService;
-import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
@@ -16,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/achiv")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "vadevid.danperad.ru")
 public class AchivController {
     @Autowired
     AchivService achivService;

@@ -1,12 +1,10 @@
-import {AfterViewInit, Component, Inject, OnInit, ViewChild} from '@angular/core';
-import {map, Subscription} from "rxjs";
+import {Component, Inject, OnInit} from '@angular/core';
+import {Subscription} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Achiv} from "../../model/achiv";
 import axios from "axios";
 import {MatTableDataSource} from "@angular/material/table";
-import {MatSort, Sort} from "@angular/material/sort";
-import {LiveAnnouncer} from "@angular/cdk/a11y";
-import {MatPaginator} from "@angular/material/paginator";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-main',
@@ -22,8 +20,7 @@ export class MainComponent implements OnInit{
   achivements:Achiv[] = [];
   achivmentsList = new MatTableDataSource<Achiv>(this.achivements);
   constructor(@Inject(Router) router: Router,
-              @Inject(ActivatedRoute) route: ActivatedRoute,
-              private _liveAnnouncer: LiveAnnouncer) {
+              @Inject(ActivatedRoute) route: ActivatedRoute) {
     this.routing = router;
     this.route = route;
     this.querySubscription = route.queryParams.subscribe((queryParam: any) => {
@@ -38,12 +35,12 @@ export class MainComponent implements OnInit{
 
   async ChangeSelection(id: number, checked: boolean) {
     if (checked) {
-      await axios.post("http://localhost:8080/achiv/uncheck", {
+      await axios.post( environment.serverUrl +"/achiv/uncheck", {
         "userId": this.userid,
         "achivId": id
       })
     } else {
-      await axios.post("http://localhost:8080/achiv/check", {
+      await axios.post(environment.serverUrl +"/achiv/check", {
         "userId": this.userid,
         "achivId": id
       })
@@ -52,14 +49,11 @@ export class MainComponent implements OnInit{
   }
 
   async getData() {
-    const response = await axios.post("http://localhost:8080/achiv/getall", {
+    const response = await axios.post(environment.serverUrl +"/achiv/getall", {
       id: this.userid
     })
     this.achivements = response.data;
     this.achivmentsList.data = this.achivements
-  }
-  applyFilter(filterValue: string) {
-    this.achivmentsList.filter = filterValue.trim().toLowerCase();
   }
 
 }

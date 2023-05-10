@@ -2,6 +2,7 @@ import {Component, Inject} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import axios from "axios";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-register',
@@ -21,7 +22,7 @@ export class RegisterComponent {
 
   async RegisterBtn() {
     if (this.login != '' && this.password != '') {
-      await axios.post('http://localhost:8080/user/register', {
+      await axios.post(environment.serverUrl +"/user/register", {
         "login": this.login,
         "password": this.password
       }).then((response) => {

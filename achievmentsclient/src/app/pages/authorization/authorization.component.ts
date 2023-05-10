@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Inject} from '@angular/core';
 import axios from 'axios'
 import {ActivatedRoute, Router} from "@angular/router";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-authorization',
@@ -22,7 +23,7 @@ export class AuthorizationComponent {
 
   async LoginBtn() {
     if (this.login != '' && this.password != '') {
-      await axios.post('http://localhost:8080/user/login', {
+      await axios.post(environment.serverUrl +"/user/login", {
         "login": this.login,
         "password": this.password
       }).then((response) => {
